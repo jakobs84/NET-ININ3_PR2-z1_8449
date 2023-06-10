@@ -5,8 +5,63 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zad1_net"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="GD8449" Height="700" Width="510">
+    <Window.Resources>
+        <Style x:Key="BoldLabelStyle" TargetType="Label">
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="24" />
+        </Style>
+
+        <Style x:Key="ColoredLabelStyle" BasedOn="{StaticResource BoldLabelStyle}" TargetType="Label">
+            <Setter Property="Foreground" Value="#900" />
+        </Style>
+
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#EEE" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Width" Value="100" />
+        </Style>
+
+        <Style x:Key="ButtonStyle2" TargetType="Button">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Background" Value="#DDF" />
+            <Setter Property="Foreground" Value="#99D" />
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#99D" />
+                    <Setter Property="Foreground" Value="#DDF" />
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#99F" />
+                    <Setter Property="Foreground" Value="#DDF" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <WrapPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Button Style="{StaticResource ButtonStyle}">Button</Button>
+            <Button Style="{StaticResource ButtonStyle}">Button</Button>
+            <Button Style="{StaticResource ButtonStyle}">Button</Button>
+            <Button Style="{StaticResource ButtonStyle}">Button</Button>
+            <Button Style="{StaticResource ButtonStyle}">Button</Button>
+        </WrapPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="0" Margin="0,100,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <Label Style="{StaticResource BoldLabelStyle}" Content="Group 1" />
+            <Button Style="{StaticResource ButtonStyle2}" Content="Button A" />
+            <Button Style="{StaticResource ButtonStyle2}" Content="Button B" />
+
+            <Label Style="{StaticResource ColoredLabelStyle}" Content="Group 2" />
+            <Button Style="{StaticResource ButtonStyle2}" Content="Button C" />
+            <Button Style="{StaticResource ButtonStyle2}" Content="Button D" />
+        </StackPanel>
     </Grid>
 </Window>
